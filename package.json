@@ -1,0 +1,19 @@
+{
+  "name": "apps-script-react-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "m93a",
+  "license": "MIT",
+  "scripts": {
+    "dev": "clasp push --watch",
+    "push": "clasp push",
+    "pull": "clasp pull"
+  },
+  "devDependencies": {
+    "@google/clasp": "^2.4.1",
+    "@types/google-apps-script": "^1.0.54"
+  },
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
