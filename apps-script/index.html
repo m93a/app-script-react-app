@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ohaii! :3</title>
+    </head>
+    <body>
+        <h1>Hewwo! UwU</h1>
+        Hodnota je: <?= value ?>
+    </body>
+    <script>
+        /** @type {Record<string, (...a: any) => Promise>} */
+        const backend = new Proxy(google.script.run, {
+            get (runner, fn) {
+                return (...args) => new Promise((res, rej) => {
+                    runner
+                        .withSuccessHandler(res)
+                        .withFailureHandler(rej)
+                        [fn](...args);
+                });
+            }
+        });
+
+        async function doThings() {
+            /** @type any[] */
+            const data = await backend.getData();
+            console.log(data);
+            alert("Data z backendu jsou: " + data.join(', '));
+        }
+
+        doThings();
+    </script>
+</html>
